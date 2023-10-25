@@ -5,7 +5,7 @@ const UserModal = require("../models/user.js");
 
 const secret = 'test';
 
-export const signin = async (req, res) => {
+const signin = async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -25,7 +25,7 @@ export const signin = async (req, res) => {
     }
 };
 
-export const signup = async (req, res) => {
+const signup = async (req, res) => {
     const { email, password, firstName, lastName } = req.body;
 
     try {
@@ -46,3 +46,5 @@ export const signup = async (req, res) => {
         console.log(error);
     }
 };
+
+module.exports = { signin, signup };
