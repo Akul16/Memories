@@ -27,8 +27,8 @@ app.get('/', (req, res) => {
     res.send('hello to MEMORIES')
 })
 
-import path from 'path'
-//const path = require("path");
+//import path from 'path'
+const path = require("path");
 __dirname = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
