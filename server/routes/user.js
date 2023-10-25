@@ -2,7 +2,8 @@
 const express = require('express')
 const router = express.Router();
 
-import { signin, signup } from "../controllers/user.js";
+const { signin, signup } = require('../controllers/user.js');
+
 
 router.post("/signin", signin);
 router.post("/signup", signup);
