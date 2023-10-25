@@ -1,15 +1,10 @@
-import express from 'express';
-//const express = require("express")
-//const bodyParser = require("body-parser")
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-//const mongoose = require('mongose')
-import cors from 'cors';
-//const cors = require('cors')
-
-import postRoutes from './routes/posts.js';
-import userRouter from "./routes/user.js";
-import dotenv from 'dotenv';
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const postRoutes = require('./routes/posts.js');
+const userRouter = require('./routes/user.js');
+const dotenv = require('dotenv');
 
 const app = express();
 dotenv.config();
@@ -27,14 +22,9 @@ app.get('/', (req, res) => {
     res.send('hello to MEMORIES')
 })
 
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-import path from 'path'
-//const path = require("path");
+//import path from 'path'
+const path = require("path");
 __dirname = path.resolve();
 
 if (process.env.NODE_ENV === "production") {

@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-//const jwt = require('jsonwebtoken')
+//import jwt from "jsonwebtoken";
+const jwt = require('jsonwebtoken')
 
 const secret = process.env.secret;
 

@@ -1,9 +1,7 @@
-import bcrypt from "bcryptjs";
-//const bcryptjs = require("bcryptjs")
-import jwt from "jsonwebtoken";
-//const jwt = require('jsonwebtoken')
+const bcryptjs = require("bcryptjs");
+const jwt = require('jsonwebtoken');
+const UserModal = require("../models/user.js");
 
-import UserModal from "../models/user.js";
 
 const secret = 'test';
 
