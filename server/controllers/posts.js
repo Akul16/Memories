@@ -120,4 +120,5 @@ export const commentPost = async (req, res) => {
     res.json(updatedPost);
 };
 
-export default router;
+
+module.exports = router;
