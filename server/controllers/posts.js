@@ -4,7 +4,7 @@ const PostMessage = require('../models/postMessage.js');
 
 const router = express.Router();
 
-export const getPosts = async (req, res) => {
+const getPosts = async (req, res) => {
     const { page } = req.query;
 
     try {
@@ -20,7 +20,7 @@ export const getPosts = async (req, res) => {
     }
 }
 
-export const getPostsBySearch = async (req, res) => {
+const getPostsBySearch = async (req, res) => {
     const { searchQuery, tags } = req.query;
 
     try {
@@ -34,7 +34,7 @@ export const getPostsBySearch = async (req, res) => {
     }
 }
 
-export const getPost = async (req, res) => {
+const getPost = async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -46,7 +46,7 @@ export const getPost = async (req, res) => {
     }
 }
 
-export const createPost = async (req, res) => {
+const createPost = async (req, res) => {
     const post = req.body;
 
     const newPostMessage = new PostMessage({ ...post, creator: req.userId, createdAt: new Date().toISOString() })
@@ -60,7 +60,7 @@ export const createPost = async (req, res) => {
     }
 }
 
-export const updatePost = async (req, res) => {
+const updatePost = async (req, res) => {
     const { id } = req.params;
     const { title, message, creator, selectedFile, tags } = req.body;
 
@@ -73,7 +73,7 @@ export const updatePost = async (req, res) => {
     res.json(updatedPost);
 }
 
-export const deletePost = async (req, res) => {
+const deletePost = async (req, res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
@@ -83,7 +83,7 @@ export const deletePost = async (req, res) => {
     res.json({ message: "Post deleted successfully." });
 }
 
-export const likePost = async (req, res) => {
+const likePost = async (req, res) => {
     const { id } = req.params;
 
     if (!req.userId) {
@@ -107,7 +107,7 @@ export const likePost = async (req, res) => {
     res.status(200).json(updatedPost);
 }
 
-export const commentPost = async (req, res) => {
+const commentPost = async (req, res) => {
     const { id } = req.params;
     const { value } = req.body;
 
@@ -121,4 +121,13 @@ export const commentPost = async (req, res) => {
 };
 
 
-module.exports = router;
+module.exports = {
+    getPosts,
+    getPostsBySearch,
+    getPost,
+    createPost,
+    updatePost,
+    deletePost,
+    likePost,
+    commentPost
+};
