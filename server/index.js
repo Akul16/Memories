@@ -18,10 +18,6 @@ app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 
 
-app.get('/', (req, res) => {
-    res.send('hello to MEMORIES')
-})
-
 
 //import path from 'path'
 const path = require("path");
